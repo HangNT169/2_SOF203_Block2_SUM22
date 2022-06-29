@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package B2_BaiMauCURD.model.service.impl.view;
+package B2_BaiMauCURD.view;
 
 import B2_BaiMauCURD.model.DongVat;
-import B2_BaiMauCURD.model.service.impl.DongVatServiceImpl;
+import B2_BaiMauCURD.service.impl.DongVatServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -56,6 +56,7 @@ public class ViewDongVat extends javax.swing.JFrame {
 
     // Show Table
     private void showData(List<DongVat> listShow) {
+        dtm.setRowCount(0);
         for (DongVat dv : listShow) {
             // add vao row
             dtm.addRow(dv.toDataRow());

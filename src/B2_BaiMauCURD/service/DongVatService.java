@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package B2_BaiMauCURD.model.service;
+package B2_BaiMauCURD.service;
 
 import B2_BaiMauCURD.model.DongVat;
 import java.util.List;
