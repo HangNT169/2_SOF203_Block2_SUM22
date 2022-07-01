@@ -71,4 +71,10 @@ public class DongVat {
     public Object[]toDataRow(){
         return new Object[]{maDV,tenDV,canNang,gioiTinh,diaChi};
     }
+
+    @Override
+    public String toString() {
+        return "DongVat{" + "maDV=" + maDV + ", tenDV=" + tenDV + ", canNang=" + canNang + ", diaChi=" + diaChi + ", gioiTinh=" + gioiTinh + '}';
+    }
+    
 }
