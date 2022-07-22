@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package B7_DemoCURD.model;
+package B7_JDBC.model;
 
 /**
  *
@@ -20,7 +20,7 @@ public class GiangVien {
     public GiangVien() {
     }
 
-    public GiangVien(String maGV, String tenGV, int tuoi, String bac, String loai, boolean gioiTinh) {
+    public GiangVien(String maGV, String tenGV, int tuoi, String loai, String bac, boolean gioiTinh) {
         this.maGV = maGV;
         this.tenGV = tenGV;
         this.tuoi = tuoi;
@@ -82,4 +82,7 @@ public class GiangVien {
         return "GiangVien{" + "maGV=" + maGV + ", tenGV=" + tenGV + ", tuoi=" + tuoi + ", bac=" + bac + ", loai=" + loai + ", gioiTinh=" + gioiTinh + '}';
     }
 
+    public Object[] toDataRow() {
+        return new Object[]{maGV, tenGV, tuoi, bac, gioiTinh};
+    }
 }

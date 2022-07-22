@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package B7_DemoCURD.repository;
+package B7_JDBC.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author hangnt
+ * @author HangNT
  */
 public class SQLServerConnection {
 
