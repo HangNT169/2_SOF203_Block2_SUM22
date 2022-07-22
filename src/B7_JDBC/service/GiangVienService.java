@@ -22,5 +22,5 @@ public interface GiangVienService {
     String update(GiangVien gv, String maGV);
 
     String delete(String maGV);
-    
+
 }

@@ -29,14 +29,13 @@ public class GiangVienServiceImpl implements GiangVienService {
 
     @Override
     public String add(GiangVien gv) {
-        // Validate
-        if (gv.getTenGV().isEmpty()) {
-            return "Ten khong duoc trong";
-        }
+        // Check validate
         if (gv.getMaGV().isEmpty()) {
-            return "Ma khong duoc trong";
+            return "Ma giang vien trong";
         }
-        //Add
+        if (gv.getTenGV().isEmpty()) {
+            return "Ten GV trong";
+        }
         boolean add = giangVienRepository.add(gv);
         if (add) {
             return "Add thanh cong";

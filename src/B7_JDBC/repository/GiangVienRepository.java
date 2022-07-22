@@ -70,18 +70,18 @@ public class GiangVienRepository {
         return null;
     }
 
-    public boolean add(GiangVien giangVien) {
+    public boolean add(GiangVien gv) {
         String query = "INSERT INTO B7_TrenLop.dbo.giang_vien "
-                + " (ma_gv, ten_gv, tuoi, bac, loai, gioi_tinh) "
-                + " VALUES(?,?,?,?,?,?)";
+                + "(ma_gv, ten_gv, tuoi, bac, loai, gioi_tinh) "
+                + "VALUES(?,?,?,?,?,?)";
         int check = 0;
         try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(query);) {
-            ps.setObject(1, giangVien.getMaGV());
-            ps.setObject(2, giangVien.getTenGV());
-            ps.setObject(3, giangVien.getTuoi());
-            ps.setObject(4, giangVien.getBac());
-            ps.setObject(5, giangVien.getLoai());
-            ps.setObject(6, giangVien.isGioiTinh());
+            ps.setObject(1, gv.getMaGV());
+            ps.setObject(2, gv.getTenGV());
+            ps.setObject(3, gv.getTuoi());
+            ps.setObject(4, gv.getBac());
+            ps.setObject(5, gv.getLoai());
+            ps.setObject(6, gv.isGioiTinh());
             check = ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace(System.out);
@@ -90,8 +90,8 @@ public class GiangVienRepository {
     }
 
     public boolean delete(String maGV) {
-        String query = "DELETE FROM B7_TrenLop.dbo.giang_vien "
-                + "WHERE ma_gv= ? ";
+        String query = "DELETE FROM B7_TrenLop.dbo.giang_vien\n"
+                + "WHERE ma_gv= ?";
         int check = 0;
         try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(query);) {
             ps.setObject(1, maGV);
@@ -103,18 +103,17 @@ public class GiangVienRepository {
     }
 
     public boolean update(GiangVien gv, String maGV) {
-        String query = "UPDATE B7_TrenLop.dbo.giang_vien "
-                + "SET ten_gv= ? , tuoi= ? , bac= ? , loai= ? , gioi_tinh= ? "
-                + "WHERE ma_gv= ? ";
+        String query = "UPDATE B7_TrenLop.dbo.giang_vien"
+                + "SET ten_gv=?, tuoi=?, bac=?, loai=?, gioi_tinh=?"
+                + "WHERE ma_gv= ?";
         int check = 0;
         try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(query);) {
             ps.setObject(1, gv.getTenGV());
             ps.setObject(2, gv.getTuoi());
-            ps.setObject(3, gv.getLoai());
-            ps.setObject(4, gv.getBac());
+            ps.setObject(3, gv.getBac());
+            ps.setObject(4, gv.getLoai());
             ps.setObject(5, gv.isGioiTinh());
-            ps.setObject(6, maGV);
-
+            ps.setObject(6, maGV); // ma da ton tai trong DB
             check = ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace(System.out);
@@ -123,8 +122,8 @@ public class GiangVienRepository {
     }
 
     public static void main(String[] args) {
-        GiangVien gv = new GiangVien("testUpdate", "testUpdate", 10, "full_time", "3", true);
-        boolean testAdd = new GiangVienRepository().update(gv,"2");
-        System.out.println(testAdd);
+        GiangVien gv = new GiangVien("hhhh", "asss", 10, "full", "1", false);
+        boolean add = new GiangVienRepository().add(gv);
+        System.out.println(add);
     }
 }

@@ -83,6 +83,6 @@ public class GiangVien {
     }
 
     public Object[] toDataRow() {
-        return new Object[]{maGV, tenGV, tuoi, bac, gioiTinh};
+        return new Object[]{maGV, tenGV, tuoi, bac, loai, gioiTinh == true ? "Nam" : "Nu"};
     }
 }
