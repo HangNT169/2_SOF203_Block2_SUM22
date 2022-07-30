@@ -2,31 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view;
+package B11_BaiMauCURD_QuanHe.view;
 
+import B11_BaiMauCURD_QuanHe.model.Lop;
+import B11_BaiMauCURD_QuanHe.model.SinhVien;
+import B11_BaiMauCURD_QuanHe.service.LopService;
+import B11_BaiMauCURD_QuanHe.service.SinhVienService;
+import B11_BaiMauCURD_QuanHe.service.impl.LopServiceImpl;
+import B11_BaiMauCURD_QuanHe.service.impl.SinhVienServiceImpl;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
-import model.Lop;
-import model.SinhVien;
-import service.LopService;
-import service.SinhVienService;
-import service.impl.LopServiceImpl;
-import service.impl.SinhVienServiceImpl;
 
 /**
  *
  * @author hangnt
  */
 public class ViewSinhVien extends javax.swing.JFrame {
-    
+
     private DefaultComboBoxModel boxModelSearch;
     private DefaultComboBoxModel boxModelMa;
     private DefaultTableModel dtm;
     private List<Lop> listLop;
     private List<SinhVien> listSinhVien;
-    private List<String> listMaLopSearch;
-    private List<String> listMaLopHienThi;
     private LopService lopService;
     private SinhVienService sinhVienService;
 
@@ -35,29 +33,30 @@ public class ViewSinhVien extends javax.swing.JFrame {
      */
     public ViewSinhVien() {
         initComponents();
-        boxModelMa = new DefaultComboBoxModel();
-        boxModelSearch = new DefaultComboBoxModel();
         dtm = new DefaultTableModel();
+        boxModelSearch = new DefaultComboBoxModel();
         lopService = new LopServiceImpl();
         sinhVienService = new SinhVienServiceImpl();
-        cbMa.setModel(boxModelMa);
-        cbSearch.setModel(boxModelSearch);
         jTable1.setModel(dtm);
-        
+        cbSearch.setModel(boxModelSearch);
+
         String[] headers = {"Ma SV", "Ten Lop", "Ten", "CMND", "Email"};
         dtm.setColumnIdentifiers(headers);
         listLop = lopService.getAll();
         listSinhVien = sinhVienService.getAll();
-        
-        listLop.forEach(lop -> cbMa.addItem(lop.getMaLop()));
-        listLop.forEach(lop -> cbSearch.addItem(lop.getMaLop()));
-        
+        showDataTable(listSinhVien);
+
+        // combobox
+        for (Lop lop : listLop) {
+            boxModelSearch.addElement(lop.getMaLop());
+        }
+
+        // label
         Lop lop = lopService.getOne(cbSearch.getSelectedItem().toString());
         jLabel9.setText(lop.getTenLop());
-        showDataTable(listSinhVien);
-        
+
     }
-    
+
     public void showDataTable(List<SinhVien> lists) {
         dtm.setRowCount(0);
         lists.forEach(s -> dtm.addRow(s.toDataRow()));
@@ -284,6 +283,7 @@ public class ViewSinhVien extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ViewSinhVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

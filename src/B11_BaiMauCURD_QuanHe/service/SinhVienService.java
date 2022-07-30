@@ -1,11 +1,11 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package service;
+package B11_BaiMauCURD_QuanHe.service;
 
+import B11_BaiMauCURD_QuanHe.model.SinhVien;
 import java.util.List;
-import model.SinhVien;
 
 /**
  *

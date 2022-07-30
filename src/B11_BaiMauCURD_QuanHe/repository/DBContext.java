@@ -1,4 +1,4 @@
-package repository;
+package B11_BaiMauCURD_QuanHe.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

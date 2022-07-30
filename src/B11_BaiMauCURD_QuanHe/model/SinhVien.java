@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package B11_BaiMauCURD_QuanHe.model;
 
 /**
  *
@@ -14,17 +14,19 @@ public class SinhVien {
     private Lop lop;
     private String ten;
     private String cmnd;
+    private String dienThoai;
     private String email;
 
-    public SinhVien(String maSV, Lop lop, String ten, String cmnd, String email) {
+    public SinhVien() {
+    }
+
+    public SinhVien(String maSV, Lop lop, String ten, String cmnd, String dienThoai, String email) {
         this.maSV = maSV;
         this.lop = lop;
         this.ten = ten;
         this.cmnd = cmnd;
+        this.dienThoai = dienThoai;
         this.email = email;
-    }
-
-    public SinhVien() {
     }
 
     public String getMaSV() {
@@ -59,6 +61,14 @@ public class SinhVien {
         this.cmnd = cmnd;
     }
 
+    public String getDienThoai() {
+        return dienThoai;
+    }
+
+    public void setDienThoai(String dienThoai) {
+        this.dienThoai = dienThoai;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -69,7 +79,7 @@ public class SinhVien {
 
     @Override
     public String toString() {
-        return "SinhVien{" + "maSV=" + maSV + ", lop=" + lop + ", ten=" + ten + ", cmnd=" + cmnd + ", email=" + email + '}';
+        return "SinhVien{" + "maSV=" + maSV + ", lop=" + lop + ", ten=" + ten + ", cmnd=" + cmnd + ", dienThoai=" + dienThoai + ", email=" + email + '}';
     }
 
     public Object[] toDataRow() {
